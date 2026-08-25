@@ -1,0 +1,3849 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color" content="#0b0a08">
+
+<title>زفاف سهام</title>
+
+<link rel="preconnect"
+      href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&family=El+Messiri:wght@400;500;600;700&display=swap"
+      rel="stylesheet">
+
+
+<style>
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+:root{
+
+  --black:#0b0a08;
+
+  --beige:#e8dcc7;
+
+  --beige-light:#f5eee3;
+
+  --gold:#c9a35b;
+
+  --gold-light:#f3d99a;
+
+  --white:#fffaf2;
+
+  --glass:rgba(18,16,13,.40);
+
+  --glass-light:rgba(255,248,236,.09);
+
+  --border:rgba(245,224,184,.25);
+
+}
+
+
+/* =====================================================
+   GENERAL
+===================================================== */
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+
+  margin:0;
+
+  background:#090806;
+
+  color:var(--white);
+
+  font-family:"El Messiri",sans-serif;
+
+  overflow-x:hidden;
+
+}
+
+button,
+input,
+textarea{
+  font:inherit;
+}
+
+a{
+  text-decoration:none;
+}
+
+
+/* =====================================================
+   VIDEO BACKGROUND
+===================================================== */
+
+#backgroundVideo{
+
+  position:fixed;
+
+  inset:0;
+
+  width:100%;
+
+  height:100%;
+
+  object-fit:cover;
+
+  z-index:-5;
+
+  pointer-events:none;
+
+}
+
+.video-overlay{
+
+  position:fixed;
+
+  inset:0;
+
+  z-index:-4;
+
+  pointer-events:none;
+
+  background:
+
+    linear-gradient(
+      rgba(7,6,4,.35),
+      rgba(7,6,4,.48)
+    );
+
+}
+
+
+/* =====================================================
+   OPENING
+===================================================== */
+
+#opening{
+
+  position:fixed;
+
+  inset:0;
+
+  z-index:9999;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  overflow:hidden;
+
+  background:#090806;
+
+  cursor:pointer;
+
+  transition:
+    opacity 1.2s ease,
+    visibility 1.2s ease;
+
+}
+
+#opening::before{
+
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  background:
+
+    radial-gradient(
+      ellipse at 0% 50%,
+      rgba(221,184,103,.28),
+      transparent 34%
+    ),
+
+    radial-gradient(
+      ellipse at 100% 50%,
+      rgba(221,184,103,.28),
+      transparent 34%
+    ),
+
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(255,235,195,.06),
+      transparent 55%
+    );
+
+  animation:edgeGlow 3s ease-in-out infinite alternate;
+
+}
+
+#opening::after{
+
+  content:"";
+
+  position:absolute;
+
+  inset:2.5%;
+
+  border:1px solid rgba(235,202,137,.24);
+
+  box-shadow:
+
+    inset 0 0 55px rgba(221,184,103,.18),
+
+    0 0 45px rgba(221,184,103,.08);
+
+}
+
+.cover-wrap{
+
+  position:relative;
+
+  width:100vw;
+
+  height:100vh;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+}
+
+.cover-image{
+
+  width:100%;
+
+  height:100%;
+
+  object-fit:cover;
+
+  user-select:none;
+
+  -webkit-user-drag:none;
+
+  filter:
+    brightness(.93)
+    drop-shadow(
+      0 0 18px rgba(221,184,103,.25)
+    );
+
+  animation:coverBreath 5s ease-in-out infinite;
+
+  transition:
+    transform 1.45s cubic-bezier(.18,.8,.2,1),
+    filter 1s ease,
+    opacity 1.2s ease;
+
+}
+
+.cover-hint{
+
+  position:absolute;
+
+  bottom:5.5%;
+
+  left:50%;
+
+  transform:translateX(-50%);
+
+  color:var(--beige-light);
+
+  font-size:.9rem;
+
+  font-weight:600;
+
+  letter-spacing:.08em;
+
+  text-shadow:0 2px 12px #000;
+
+  opacity:.88;
+
+  animation:hintPulse 2.2s ease-in-out infinite;
+
+  white-space:nowrap;
+
+}
+
+#opening.opening .cover-image{
+
+  transform:
+    scale(1.08)
+    rotateX(7deg);
+
+  filter:
+    brightness(1.18)
+    drop-shadow(
+      0 0 70px rgba(243,217,154,.85)
+    );
+
+  opacity:0;
+
+}
+
+#opening.opening .cover-hint{
+  opacity:0;
+}
+
+#opening.opening{
+
+  opacity:0;
+
+  visibility:hidden;
+
+  pointer-events:none;
+
+}
+
+
+/* =====================================================
+   ANIMATIONS
+===================================================== */
+
+@keyframes edgeGlow{
+
+  from{
+    opacity:.55;
+  }
+
+  to{
+    opacity:1;
+  }
+
+}
+
+@keyframes coverBreath{
+
+  0%,100%{
+    transform:scale(1);
+  }
+
+  50%{
+    transform:scale(1.008);
+  }
+
+}
+
+@keyframes hintPulse{
+
+  0%,100%{
+    opacity:.55;
+  }
+
+  50%{
+    opacity:1;
+  }
+
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+#main{
+
+  display:none;
+
+  padding-bottom:110px;
+
+  position:relative;
+
+  min-height:100vh;
+
+  overflow:hidden;
+
+}
+
+#main::after{
+
+  content:"";
+
+  position:fixed;
+
+  inset:0;
+
+  pointer-events:none;
+
+  background:
+
+    radial-gradient(
+      circle at 10% 20%,
+      rgba(232,220,199,.035),
+      transparent 25%
+    ),
+
+    radial-gradient(
+      circle at 90% 80%,
+      rgba(201,163,91,.035),
+      transparent 25%
+    );
+
+  z-index:0;
+
+}
+
+
+/* =====================================================
+   SECTIONS
+===================================================== */
+
+.section{
+
+  position:relative;
+
+  z-index:1;
+
+  min-height:auto;
+
+  padding:40px 14px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+}
+
+.section:first-child{
+
+  padding-top:50px;
+
+  padding-bottom:35px;
+
+}
+
+.section:last-of-type{
+
+  padding-top:40px;
+
+  padding-bottom:40px;
+
+}
+
+.glass{
+
+  width:min(920px,100%);
+
+  background:
+
+    linear-gradient(
+      135deg,
+      rgba(255,248,236,.10),
+      rgba(20,18,15,.38)
+    );
+
+  border:1px solid var(--border);
+
+  border-radius:30px;
+
+  backdrop-filter:blur(15px);
+
+  -webkit-backdrop-filter:blur(15px);
+
+  box-shadow:
+
+    0 28px 80px rgba(0,0,0,.35),
+
+    inset 0 1px 0 rgba(255,255,255,.10);
+
+  padding:clamp(25px,6vw,60px);
+
+  text-align:center;
+
+  position:relative;
+
+  overflow:hidden;
+
+}
+
+
+
+
+
+/* =====================================================
+   TEXT
+===================================================== */
+
+.ornament{
+
+  color:var(--gold-light);
+
+  font-size:24px;
+
+  letter-spacing:12px;
+
+  margin-bottom:16px;
+
+}
+
+.bismillah{
+
+  font-family:"Noto Naskh Arabic",serif;
+
+  font-size:
+    clamp(2rem,5vw,3.4rem);
+
+  color:var(--beige-light);
+
+  margin:0 0 18px;
+
+}
+
+.quran{
+
+  font-family:"Noto Naskh Arabic",serif;
+
+  font-size:
+    clamp(1.45rem,4vw,2.25rem);
+
+  line-height:2;
+
+  color:#fff9ed;
+
+  margin:0 auto 20px;
+
+  max-width:800px;
+
+  text-shadow:
+    0 2px 18px rgba(0,0,0,.35);
+
+}
+
+.welcome{
+
+  color:var(--beige);
+
+  font-size:
+    clamp(1rem,2.4vw,1.2rem);
+
+  line-height:2.1;
+
+  max-width:720px;
+
+  margin:0 auto 18px;
+
+}
+
+.names{
+
+  font-family:"Noto Naskh Arabic",serif;
+
+  color:var(--beige-light);
+
+  font-size:
+    clamp(3rem,9vw,6rem);
+
+  line-height:1.2;
+
+  margin:12px 0;
+
+  text-shadow:
+
+    0 3px 22px rgba(0,0,0,.45),
+
+    0 0 18px rgba(201,163,91,.13);
+
+}
+
+.amp{
+
+  color:var(--gold-light);
+
+  font-size:.7em;
+
+}
+
+.message{
+
+  color:#f2e8d9;
+
+  font-size:
+    clamp(1rem,2.5vw,1.18rem);
+
+  line-height:2.1;
+
+  max-width:760px;
+
+  margin:auto;
+
+}
+
+
+
+
+
+/* =====================================================
+   DATE
+===================================================== */
+
+.date-section{
+
+  background:
+    linear-gradient(
+      rgba(6,5,4,.10),
+      rgba(6,5,4,.25)
+    );
+
+}
+
+.calendar-image{
+
+  display:block;
+
+  width:min(340px,80vw);
+
+  max-height:430px;
+
+  object-fit:contain;
+
+  margin:0 auto 22px;
+
+  border-radius:24px;
+
+  box-shadow:
+    0 20px 55px rgba(0,0,0,.35);
+
+  border:
+    1px solid rgba(245,224,184,.22);
+
+}
+
+.date-title{
+
+  font-family:"Noto Naskh Arabic",serif;
+
+  font-size:
+    clamp(2rem,5vw,3.4rem);
+
+  color:var(--beige-light);
+
+  margin:0 0 8px;
+
+}
+
+.date-text{
+
+  color:var(--beige);
+
+  font-size:1.1rem;
+
+  font-weight:700;
+
+  margin:0 0 22px;
+
+}
+
+.countdown{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(4,1fr);
+
+  gap:10px;
+
+  max-width:680px;
+
+  margin:auto;
+
+}
+
+.counter{
+
+  padding:17px 8px;
+
+  border-radius:20px;
+
+  background:var(--glass-light);
+
+  border:
+    1px solid rgba(245,224,184,.20);
+
+  backdrop-filter:blur(10px);
+
+}
+
+.counter strong{
+
+  display:block;
+
+  font-size:
+    clamp(1.9rem,6vw,3.2rem);
+
+  color:#fffaf2;
+
+  line-height:1;
+
+}
+
+.counter span{
+
+  display:block;
+
+  margin-top:9px;
+
+  color:var(--beige);
+
+  font-size:.8rem;
+
+  font-weight:700;
+
+}
+
+
+/* =====================================================
+   LOCATION
+===================================================== */
+
+.section-title{
+
+  font-family:"Noto Naskh Arabic",serif;
+
+  color:var(--beige-light);
+
+  font-size:
+    clamp(2.2rem,5vw,3.7rem);
+
+  margin:0 0 8px;
+
+}
+
+.section-subtitle{
+
+  color:var(--gold-light);
+
+  font-weight:700;
+
+  margin-bottom:20px;
+
+}
+
+.venue-image{
+
+  width:100%;
+
+  max-height:430px;
+
+  object-fit:cover;
+
+  border-radius:24px;
+
+  display:block;
+
+  margin:0 auto 22px;
+
+  border:
+    1px solid rgba(245,224,184,.22);
+
+  box-shadow:
+    0 20px 55px rgba(0,0,0,.35);
+
+}
+
+.venue-name{
+
+  font-family:"Noto Naskh Arabic",serif;
+
+  color:#fffaf2;
+
+  font-size:
+    clamp(2rem,5vw,3.1rem);
+
+  margin:0 0 5px;
+
+}
+
+.venue-city{
+
+  color:var(--beige);
+
+  margin-bottom:20px;
+
+}
+
+.map{
+
+  width:100%;
+
+  height:330px;
+
+  border:0;
+
+  border-radius:22px;
+
+  display:block;
+
+  box-shadow:
+    0 18px 45px rgba(0,0,0,.3);
+
+  margin-bottom:20px;
+
+}
+
+.map-button{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:10px;
+
+  width:min(420px,100%);
+
+  padding:14px 24px;
+
+  border-radius:999px;
+
+  color:#17130d;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f2dfb0,
+      #c9a35b
+    );
+
+  font-weight:800;
+
+}
+
+
+/* =====================================================
+   NO PHOTO - NEW DESIGN
+===================================================== */
+
+.no-photo-card{
+
+  position:relative;
+
+}
+
+.no-photo-icon{
+
+  width:125px;
+
+  height:125px;
+
+  margin:0 auto 20px;
+
+  border-radius:50%;
+
+  position:relative;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  border:
+    2px solid rgba(243,217,154,.65);
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,248,236,.10),
+      rgba(255,248,236,.025)
+    );
+
+  box-shadow:
+
+    0 0 35px rgba(201,163,91,.12),
+
+    inset 0 0 20px rgba(255,255,255,.04);
+
+}
+
+.no-photo-icon::before{
+
+  content:"";
+
+  position:absolute;
+
+  width:74px;
+
+  height:48px;
+
+  border:
+    3px solid var(--gold-light);
+
+  border-radius:13px;
+
+}
+
+.no-photo-icon::after{
+
+  content:"";
+
+  position:absolute;
+
+  width:24px;
+
+  height:24px;
+
+  border:
+    3px solid var(--gold-light);
+
+  border-radius:50%;
+
+}
+
+.no-photo-slash{
+
+  position:absolute;
+
+  width:130px;
+
+  height:3px;
+
+  background:#f3d99a;
+
+  transform:
+    rotate(-45deg);
+
+  box-shadow:
+    0 0 10px rgba(243,217,154,.5);
+
+}
+
+.camera-under-ban{
+
+  margin-top:5px;
+
+  font-size:30px;
+
+  opacity:.75;
+
+  filter:
+    drop-shadow(
+      0 3px 8px rgba(0,0,0,.4)
+    );
+
+}
+
+.no-photo-title{
+
+  font-family:"Noto Naskh Arabic",serif;
+
+  font-size:
+    clamp(2rem,5vw,3rem);
+
+  color:var(--beige-light);
+
+  margin:0 0 13px;
+
+}
+
+.no-photo-text{
+
+  color:#eee3d2;
+
+  font-size:
+    clamp(1rem,2.4vw,1.18rem);
+
+  line-height:2.1;
+
+  max-width:720px;
+
+  margin:auto;
+
+}
+
+
+/* =====================================================
+   WISHES
+===================================================== */
+
+.wishes-title{
+
+  font-family:"Noto Naskh Arabic",serif;
+
+  color:var(--beige-light);
+
+  font-size:
+    clamp(2.2rem,5vw,3.5rem);
+
+  margin:0 0 7px;
+
+}
+
+.wishes-subtitle{
+
+  color:var(--beige);
+
+  line-height:2;
+
+  margin:0 auto 22px;
+
+  max-width:650px;
+
+}
+
+.wish-input,
+.wish-textarea{
+
+  width:100%;
+
+  border:
+    1px solid rgba(245,224,184,.25);
+
+  background:
+    rgba(255,248,236,.08);
+
+  color:#fffaf2;
+
+  border-radius:18px;
+
+  padding:14px 18px;
+
+  outline:none;
+
+}
+
+.wish-textarea{
+
+  min-height:140px;
+
+  resize:vertical;
+
+  margin-top:11px;
+
+}
+
+.wish-submit{
+
+  width:100%;
+
+  margin-top:13px;
+
+  padding:14px 22px;
+
+  border:0;
+
+  border-radius:999px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f2dfb0,
+      #c9a35b
+    );
+
+  color:#17130d;
+
+  font-weight:800;
+
+  cursor:pointer;
+
+}
+
+#wishStatus{
+
+  min-height:28px;
+
+  margin-top:13px;
+
+  color:var(--gold-light);
+
+  font-weight:700;
+
+}
+
+
+/* =====================================================
+   FINAL
+===================================================== */
+
+.final-message{
+
+  font-family:"Noto Naskh Arabic",serif;
+
+  font-size:
+    clamp(2rem,5vw,3.4rem);
+
+  color:var(--beige-light);
+
+  margin:0 0 13px;
+
+}
+
+.final-sub{
+
+  color:var(--beige);
+
+  font-size:1.05rem;
+
+  line-height:2;
+
+  margin-bottom:22px;
+
+}
+
+.signature{
+
+  color:var(--gold-light);
+
+  font-family:"Noto Naskh Arabic",serif;
+
+  font-size:2.4rem;
+
+}
+
+footer{
+
+  position:relative;
+
+  z-index:1;
+
+  text-align:center;
+
+  padding:28px 20px 100px;
+
+  background:rgba(7,6,5,.70);
+
+  border-top:
+    1px solid rgba(245,224,184,.14);
+
+  color:#cfc1ad;
+
+}
+
+footer strong{
+
+  color:var(--beige-light);
+
+  font-family:"Noto Naskh Arabic",serif;
+
+  font-size:1.45rem;
+
+}
+
+
+/* =====================================================
+   MUSIC
+===================================================== */
+
+#musicBtn{
+
+  position:fixed;
+
+  top:18px;
+
+  left:18px;
+
+  z-index:2000;
+
+  width:52px;
+
+  height:52px;
+
+  border-radius:50%;
+
+  border:
+    1px solid rgba(245,224,184,.35);
+
+  background:
+    rgba(20,18,15,.55);
+
+  color:var(--gold-light);
+
+  backdrop-filter:blur(12px);
+
+  cursor:pointer;
+
+  display:none;
+
+}
+
+#musicBtn.playing{
+
+  animation:musicPulse 1.8s ease-in-out infinite;
+
+}
+
+@keyframes musicPulse{
+
+  50%{
+
+    box-shadow:
+      0 0 0 9px rgba(201,163,91,.08),
+      0 10px 30px rgba(0,0,0,.25);
+
+  }
+
+}
+
+
+/* =====================================================
+   CAMERA BUTTON
+===================================================== */
+
+#cameraButton{
+
+  position:fixed;
+
+  bottom:20px;
+
+  left:50%;
+
+  transform:translateX(-50%);
+
+  z-index:3000;
+
+  width:70px;
+
+  height:70px;
+
+  border-radius:50%;
+
+  border:
+    3px solid rgba(255,255,255,.85);
+
+  background:
+    linear-gradient(
+      145deg,
+      #f4e4bd,
+      #c9a35b
+    );
+
+  color:#17130d;
+
+  cursor:pointer;
+
+  display:none;
+
+  align-items:center;
+
+  justify-content:center;
+
+  box-shadow:
+
+    0 8px 35px rgba(0,0,0,.5),
+
+    0 0 25px rgba(201,163,91,.25);
+
+}
+
+.camera-main-icon{
+
+  width:34px;
+
+  height:25px;
+
+  border:
+    3px solid #17130d;
+
+  border-radius:7px;
+
+  position:relative;
+
+}
+
+.camera-main-icon::before{
+
+  content:"";
+
+  position:absolute;
+
+  width:11px;
+
+  height:11px;
+
+  border:
+    3px solid #17130d;
+
+  border-radius:50%;
+
+  left:50%;
+
+  top:50%;
+
+  transform:translate(-50%,-50%);
+
+}
+
+.camera-main-icon::after{
+
+  content:"";
+
+  position:absolute;
+
+  width:10px;
+
+  height:5px;
+
+  background:#17130d;
+
+  border-radius:4px 4px 0 0;
+
+  top:-7px;
+
+  left:5px;
+
+}
+
+
+/* =====================================================
+   CAMERA MODAL - SNAPCHAT STYLE
+===================================================== */
+
+#cameraModal{
+
+  position:fixed;
+
+  inset:0;
+
+  z-index:5000;
+
+  display:none;
+
+  background:#000;
+
+}
+
+#cameraModal.active{
+
+  display:block;
+
+}
+
+.camera-panel{
+
+  width:100%;
+
+  height:100%;
+
+  position:relative;
+
+  background:#000;
+
+  overflow:hidden;
+
+}
+
+.camera-stage{
+
+  position:absolute;
+
+  inset:0;
+
+  background:#000;
+
+  overflow:hidden;
+
+}
+
+#cameraVideo{
+
+  width:100%;
+
+  height:100%;
+
+  object-fit:cover;
+
+  transform:scaleX(-1);
+
+}
+
+.camera-top{
+
+  position:absolute;
+
+  top:0;
+
+  left:0;
+
+  right:0;
+
+  z-index:10;
+
+  padding:
+    18px 16px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  background:
+    linear-gradient(
+      rgba(0,0,0,.55),
+      transparent
+    );
+
+}
+
+.camera-top-left,
+.camera-top-right{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:12px;
+
+}
+
+.snap-button{
+
+  width:42px;
+
+  height:42px;
+
+  border:0;
+
+  border-radius:50%;
+
+  background:
+    rgba(0,0,0,.42);
+
+  color:#fff;
+
+  backdrop-filter:blur(8px);
+
+  font-size:20px;
+
+  cursor:pointer;
+
+}
+
+.camera-title{
+
+  color:#fff;
+
+  font-weight:700;
+
+  text-shadow:0 2px 8px #000;
+
+}
+
+.camera-close{
+
+  width:42px;
+
+  height:42px;
+
+  border:0;
+
+  border-radius:50%;
+
+  background:
+    rgba(0,0,0,.42);
+
+  color:#fff;
+
+  font-size:27px;
+
+  cursor:pointer;
+
+}
+
+.camera-filter{
+
+  position:absolute;
+
+  inset:0;
+
+  pointer-events:none;
+
+  display:flex;
+
+  flex-direction:column;
+
+  justify-content:flex-end;
+
+  align-items:center;
+
+  padding:
+    30px 15px 145px;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(0,0,0,.72),
+      transparent 42%
+    );
+
+}
+
+.filter-ornament{
+
+  color:#f3d99a;
+
+  font-size:21px;
+
+  letter-spacing:8px;
+
+  margin-bottom:5px;
+
+  text-shadow:
+    0 2px 10px #000;
+
+}
+
+.filter-names{
+
+  font-family:"Noto Naskh Arabic",serif;
+
+  font-size:
+    clamp(2.4rem,10vw,4rem);
+
+  color:#fffaf2;
+
+  text-shadow:
+
+    0 2px 10px #000,
+
+    0 0 15px rgba(243,217,154,.35);
+
+  line-height:1.05;
+
+}
+
+.filter-date{
+
+  color:#f3d99a;
+
+  font-weight:700;
+
+  margin-top:5px;
+
+  text-shadow:
+    0 2px 8px #000;
+
+}
+
+.filter-congrats{
+
+  font-family:"Noto Naskh Arabic",serif;
+
+  color:#fffaf2;
+
+  font-size:1.7rem;
+
+  text-shadow:
+    0 2px 8px #000;
+
+}
+
+
+/* =====================================================
+   CAMERA BOTTOM CONTROLS
+===================================================== */
+
+.camera-bottom{
+
+  position:absolute;
+
+  left:0;
+
+  right:0;
+
+  bottom:0;
+
+  z-index:20;
+
+  padding:
+    15px 18px 25px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:35px;
+
+  background:
+    linear-gradient(
+      transparent,
+      rgba(0,0,0,.75)
+    );
+
+}
+
+.capture-button{
+
+  width:78px;
+
+  height:78px;
+
+  border-radius:50%;
+
+  border:
+    5px solid #fff;
+
+  background:#fff;
+
+  box-shadow:
+    0 3px 20px rgba(0,0,0,.5);
+
+  cursor:pointer;
+
+}
+
+.camera-tool{
+
+  width:48px;
+
+  height:48px;
+
+  border:0;
+
+  border-radius:50%;
+
+  background:
+    rgba(0,0,0,.45);
+
+  color:#fff;
+
+  backdrop-filter:blur(8px);
+
+  font-size:22px;
+
+  cursor:pointer;
+
+}
+
+.flash-active{
+
+  background:#f3d99a;
+
+  color:#17130d;
+
+}
+
+
+/* =====================================================
+   PREVIEW
+===================================================== */
+
+#photoPreview{
+
+  position:absolute;
+
+  inset:0;
+
+  display:none;
+
+  z-index:30;
+
+  background:#000;
+
+  align-items:center;
+
+  justify-content:center;
+
+  flex-direction:column;
+
+  padding:20px;
+
+}
+
+#photoPreview.active{
+
+  display:flex;
+
+}
+
+#previewCanvas{
+
+  width:min(600px,100%);
+
+  max-height:72vh;
+
+  object-fit:contain;
+
+  border-radius:20px;
+
+}
+
+.preview-name{
+
+  width:min(600px,100%);
+
+  margin-top:15px;
+
+  padding:14px 17px;
+
+  border:
+    1px solid rgba(255,255,255,.25);
+
+  border-radius:15px;
+
+  background:
+    rgba(255,255,255,.08);
+
+  color:#fff;
+
+  outline:none;
+
+  text-align:right;
+
+}
+
+.preview-actions{
+
+  width:min(600px,100%);
+
+  display:flex;
+
+  gap:10px;
+
+  margin-top:12px;
+
+}
+
+.preview-actions button{
+
+  flex:1;
+
+  padding:14px;
+
+  border-radius:999px;
+
+  cursor:pointer;
+
+  font-weight:800;
+
+}
+
+#retakeButton{
+
+  border:
+    1px solid rgba(255,255,255,.25);
+
+  background:
+    rgba(255,255,255,.08);
+
+  color:#fff;
+
+}
+
+#sendPhotoButton{
+
+  border:0;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f2dfb0,
+      #c9a35b
+    );
+
+  color:#17130d;
+
+}
+
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+#cameraStatus{
+
+  position:absolute;
+
+  bottom:105px;
+
+  left:50%;
+
+  transform:translateX(-50%);
+
+  z-index:50;
+
+  width:90%;
+
+  text-align:center;
+
+  color:#fff;
+
+  font-size:.9rem;
+
+  text-shadow:
+    0 2px 8px #000;
+
+  pointer-events:none;
+
+}
+
+
+/* =====================================================
+   REVEAL
+===================================================== */
+
+.reveal{
+
+  opacity:0;
+
+  transform:translateY(25px);
+
+  transition:
+    opacity .8s ease,
+    transform .8s ease;
+
+}
+
+.reveal.visible{
+
+  opacity:1;
+
+  transform:none;
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:650px){
+
+  .section{
+    padding:32px 10px;
+  }
+
+  .section:first-child{
+    padding-top:40px;
+    padding-bottom:30px;
+  }
+
+  .glass{
+    border-radius:24px;
+    padding:25px 15px;
+  }
+
+  .countdown{
+    grid-template-columns:
+      repeat(2,1fr);
+  }
+
+  .map{
+    height:280px;
+  }
+
+  .camera-bottom{
+    padding-bottom:22px;
+  }
+
+  .capture-button{
+    width:72px;
+    height:72px;
+  }
+
+  .camera-tool{
+    width:44px;
+    height:44px;
+  }
+
+  .floating-decoration{
+    transform:scale(.75);
+  }
+
+}
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media(prefers-reduced-motion:reduce){
+
+  *,
+  *::before,
+  *::after{
+
+    animation-duration:.01ms!important;
+
+    animation-iteration-count:1!important;
+
+    scroll-behavior:auto!important;
+
+    transition-duration:.01ms!important;
+
+  }
+
+}
+
+
+
+/* =====================================================
+   NEW PREMIUM DESIGN OVERRIDES
+===================================================== */
+
+#opening{
+  background:#050403;
+}
+
+.opening-video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.opening-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(rgba(5,4,3,.18),rgba(5,4,3,.62));
+}
+
+.opening-content{
+  position:relative;
+  z-index:2;
+  width:min(92%,760px);
+  text-align:center;
+  color:#fffaf2;
+  padding:30px;
+  animation:openingFade 1.4s ease both;
+}
+
+.opening-ornament{
+  color:var(--gold-light);
+  font-size:24px;
+  margin-bottom:18px;
+}
+
+.opening-names{
+  font-family:"Noto Naskh Arabic",serif;
+  font-size:clamp(3.2rem,11vw,7rem);
+  line-height:1.15;
+  text-shadow:0 4px 28px rgba(0,0,0,.55);
+}
+
+.opening-names span{color:var(--gold-light);}
+
+.opening-date{
+  margin-top:8px;
+  color:var(--gold-light);
+  font-family:"El Messiri",sans-serif;
+  font-weight:600;
+  letter-spacing:.08em;
+}
+
+.cover-hint{
+  position:static;
+  transform:none;
+  display:inline-flex;
+  margin-top:34px;
+  padding:13px 28px;
+  border:1px solid rgba(245,224,184,.42);
+  border-radius:999px;
+  background:rgba(10,8,5,.28);
+  backdrop-filter:blur(12px);
+  color:#fffaf2;
+  animation:hintPulse 2.2s ease-in-out infinite;
+}
+
+@keyframes openingFade{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+.bottom-nav{
+  position:fixed;
+  left:50%;
+  bottom:12px;
+  transform:translateX(-50%);
+  z-index:4000;
+  width:min(560px,calc(100% - 20px));
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:4px;
+  padding:8px;
+  border:1px solid rgba(245,224,184,.20);
+  border-radius:24px;
+  background:rgba(12,10,8,.72);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  box-shadow:0 14px 45px rgba(0,0,0,.45);
+}
+
+.nav-item{
+  min-width:0;
+  border:0;
+  background:transparent;
+  color:#cfc1ad;
+  padding:9px 4px 7px;
+  border-radius:17px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:3px;
+  font-family:"El Messiri",sans-serif;
+  font-size:.68rem;
+  font-weight:600;
+  cursor:pointer;
+}
+
+.nav-item .nav-icon{font-family:Arial,sans-serif;font-size:21px;line-height:1;color:#d9c28f;}
+.nav-item.active{background:rgba(201,163,91,.14);color:#fffaf2;}
+.nav-item.active .nav-icon{color:#f3d99a;}
+.nav-camera{appearance:none;}
+
+.camera-float-wrap{
+  position:fixed;
+  right:18px;
+  bottom:105px;
+  z-index:3000;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:7px;
+}
+
+#cameraButton{
+  position:static;
+  transform:none;
+}
+
+.camera-float-label{
+  color:#fffaf2;
+  font-size:.72rem;
+  font-weight:700;
+  white-space:nowrap;
+  padding:7px 10px;
+  border-radius:999px;
+  background:rgba(10,8,5,.65);
+  border:1px solid rgba(245,224,184,.18);
+  backdrop-filter:blur(10px);
+}
+
+.gallery-grid{
+  display:grid;
+  grid-template-columns:1.35fr 1fr 1fr;
+  grid-auto-rows:180px;
+  gap:10px;
+  margin-top:22px;
+}
+
+.gallery-item{
+  padding:0;
+  border:0;
+  border-radius:20px;
+  overflow:hidden;
+  background:#111;
+  cursor:pointer;
+  position:relative;
+}
+
+.gallery-item-large{grid-row:span 2;}
+.gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease;}
+.gallery-item:hover img{transform:scale(1.05);}
+
+#galleryLightbox{
+  position:fixed;
+  inset:0;
+  z-index:6000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  background:rgba(0,0,0,.94);
+  padding:50px 60px;
+}
+#galleryLightbox.active{display:flex;}
+#galleryLightboxImage{max-width:92vw;max-height:86vh;object-fit:contain;border-radius:18px;box-shadow:0 20px 80px rgba(0,0,0,.6);}
+#galleryClose,#galleryPrev,#galleryNext{position:absolute;border:0;background:rgba(255,255,255,.10);color:#fff;width:46px;height:46px;border-radius:50%;cursor:pointer;font-size:30px;backdrop-filter:blur(10px);}
+#galleryClose{top:18px;right:18px;}
+#galleryPrev{left:18px;top:50%;transform:translateY(-50%);}
+#galleryNext{right:18px;top:50%;transform:translateY(-50%);}
+#galleryCounter{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);color:#fffaf2;font-weight:700;}
+
+.camera-filter{
+  position:absolute;
+  inset:0;
+  z-index:6;
+  pointer-events:none;
+  display:block;
+  background:transparent;
+}
+
+.camera-filter img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+#cameraVideo{position:relative;z-index:1;}
+.camera-top,.camera-bottom,.camera-status{z-index:20;}
+#cameraStatus{z-index:50;}
+
+#photoPreview{
+  background:#000;
+}
+
+@media(max-width:650px){
+  .bottom-nav{bottom:8px;border-radius:22px;}
+  .nav-item{font-size:.61rem;padding:8px 2px 6px;}
+  .nav-item .nav-icon{font-size:19px;}
+  .camera-float-wrap{right:12px;bottom:92px;}
+  .camera-float-label{font-size:.63rem;}
+  .gallery-grid{grid-template-columns:1fr 1fr;grid-auto-rows:150px;}
+  .gallery-item-large{grid-column:span 2;grid-row:span 1;}
+  #galleryLightbox{padding:35px 20px;}
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     BACKGROUND VIDEO
+===================================================== -->
+
+<video
+  id="backgroundVideo"
+  autoplay
+  muted
+  loop
+  playsinline>
+
+  <source
+    src="background.mp4"
+    type="video/mp4">
+
+</video>
+
+<div class="video-overlay"></div>
+
+
+<!-- =====================================================
+     MUSIC
+===================================================== -->
+
+<audio
+  id="music"
+  loop
+  preload="auto">
+
+  <source
+    src="music.mp3"
+    type="audio/mpeg">
+
+</audio>
+
+
+<!-- =====================================================
+     OPENING
+===================================================== -->
+
+<div id="opening" aria-label="فتح الدعوة">
+
+  <video id="openingVideo" class="opening-video" autoplay muted playsinline preload="auto">
+    <source src="opening.mp4" type="video/mp4">
+  </video>
+</div>
+
+
+<!-- =====================================================
+     MUSIC BUTTON
+===================================================== -->
+
+<button
+  id="musicBtn"
+  type="button">
+
+  ♫
+
+</button>
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main id="main">
+
+
+<!-- =====================================================
+     INTRO
+===================================================== -->
+
+<section class="section">
+
+  <div class="glass reveal">
+
+    <div class="ornament">
+      ✦ ✦ ✦
+    </div>
+
+    <h1 class="bismillah">
+      بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ
+    </h1>
+
+    <p class="quran">
+
+      ﴿ وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ
+      أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا
+      وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ
+      إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ ﴾
+
+    </p>
+
+    <p class="welcome">
+
+      بكل الحب والفرح، يسعدنا أن نشارككم أجمل
+      لحظات حياتنا، وأن ندعوكم لمشاركتنا فرحة
+      اجتماع قلبين على المودة والمحبة.
+
+    </p>
+
+    <div class="names">
+       <span class="amp"></span> سهام
+    </div>
+
+    <p class="message">
+
+      حضوركم معنا يكمّل فرحتنا، ووجودكم بيننا
+      يجعل هذا اليوم ذكرى أجمل وأغلى في قلوبنا.
+
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     DATE
+===================================================== -->
+
+<section class="section date-section" id="dateSection">
+
+  <div class="glass reveal">
+
+    <div class="ornament">
+      ✧
+    </div>
+
+    <img
+      src="calendar.jpg"
+      class="calendar-image"
+      alt="تقويم 19 ديسمبر 2026">
+
+    <h2 class="date-title">
+      موعد فرحتنا
+    </h2>
+
+    <p class="date-text">
+      السبت 19 ديسمبر 2026 — من الساعة 11:00 صباحًا إلى 17:00
+    </p>
+
+    <div
+      class="countdown"
+      id="countdown">
+
+      <div class="counter">
+        <strong id="days">00</strong>
+        <span>يوم</span>
+      </div>
+
+      <div class="counter">
+        <strong id="hours">00</strong>
+        <span>ساعة</span>
+      </div>
+
+      <div class="counter">
+        <strong id="minutes">00</strong>
+        <span>دقيقة</span>
+      </div>
+
+      <div class="counter">
+        <strong id="seconds">00</strong>
+        <span>ثانية</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     LOCATION
+===================================================== -->
+
+<section class="section" id="locationSection">
+
+  <div class="glass reveal">
+
+    <div class="ornament">
+      ✦
+    </div>
+
+    <h2 class="section-title">
+      مكان اللقاء
+    </h2>
+
+    <div class="section-subtitle">
+      نسعد بوجودكم معنا
+    </div>
+
+    <img
+      src="venue.jpg"
+      class="venue-image"
+      alt="قاعة باب الحارة">
+
+    <h3 class="venue-name">
+      قاعة باب الحارة
+    </h3>
+
+    <p class="venue-city">
+      برج بوعريريج
+    </p>
+
+    <iframe
+      class="map"
+      src="https://www.google.com/maps?q=قاعة+باب+الحارة,+برج+بوعريريج&output=embed"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+
+    <a
+      class="map-button"
+      href="https://maps.app.goo.gl/jfKUPu6s5eQUJ71SA"
+      target="_blank"
+      rel="noopener noreferrer">
+
+      فتح الموقع في Google Maps
+
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     GALLERY
+===================================================== -->
+
+<section class="section" id="gallerySection">
+  <div class="glass reveal">
+    <div class="ornament">✦</div>
+    <h2 class="section-title">من أجمل لحظاتنا</h2>
+    <div class="section-subtitle">صور نحتفظ بها بكل حب</div>
+
+    <div class="gallery-grid">
+      <button class="gallery-item gallery-item-large" data-gallery="0" type="button"><img src="gallery1.jpg" alt="صورة من أجمل لحظاتنا"></button>
+      <button class="gallery-item" data-gallery="1" type="button"><img src="gallery2.jpg" alt="صورة من أجمل لحظاتنا"></button>
+      <button class="gallery-item" data-gallery="2" type="button"><img src="gallery3.jpg" alt="صورة من أجمل لحظاتنا"></button>
+      <button class="gallery-item" data-gallery="3" type="button"><img src="gallery4.jpg" alt="صورة من أجمل لحظاتنا"></button>
+      <button class="gallery-item" data-gallery="4" type="button"><img src="gallery5.jpg" alt="صورة من أجمل لحظاتنا"></button>
+    </div>
+  </div>
+</section>
+
+<div id="galleryLightbox" aria-hidden="true">
+  <button id="galleryClose" type="button" aria-label="إغلاق">×</button>
+  <button id="galleryPrev" type="button" aria-label="الصورة السابقة">‹</button>
+  <img id="galleryLightboxImage" src="gallery1.jpg" alt="معرض الصور">
+  <button id="galleryNext" type="button" aria-label="الصورة التالية">›</button>
+  <div id="galleryCounter">1 / 5</div>
+</div>
+
+<!-- =====================================================
+     NO PHOTO
+===================================================== -->
+
+<section class="section">
+
+  <div class="glass reveal no-photo-card">
+
+    <div class="no-photo-icon">
+
+      <span class="no-photo-slash"></span>
+
+    </div>
+
+    <div class="camera-under-ban">
+      📷
+    </div>
+
+    <h2 class="no-photo-title">
+
+      نرجو منكم لطفًا تجنّب التصوير
+
+    </h2>
+
+    <p class="no-photo-text">
+
+      حرصًا على خصوصية هذه اللحظات الجميلة،
+      نرجو منكم بكل لطف عدم التقاط الصور
+      أو تسجيل الفيديوهات أثناء الحفل.
+
+      حضوركم واندماجكم معنا هو أجمل ما نتمنى
+      أن نحتفظ به من هذا اليوم.
+
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     WISHES
+===================================================== -->
+
+<section class="section">
+
+  <div class="glass reveal">
+
+    <div class="ornament">
+      ♡ ✦ ♡
+    </div>
+
+    <h2 class="wishes-title">
+      اتركوا لنا تهنئتكم
+    </h2>
+
+    <p class="wishes-subtitle">
+
+      كلماتكم الجميلة ستبقى ذكرى نحتفظ بها بكل حب 🤍
+
+    </p>
+
+    <input
+      id="wishName"
+      class="wish-input"
+      type="text"
+      placeholder="اسمك"
+      maxlength="80">
+
+    <textarea
+      id="wishMessage"
+      class="wish-textarea"
+      placeholder="اكتب تهنئتك هنا..."
+      maxlength="500"></textarea>
+
+    <button
+      id="wishSubmit"
+      class="wish-submit"
+      type="button">
+
+      إرسال التهنئة 🤍
+
+    </button>
+
+    <div id="wishStatus"></div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     FINAL
+===================================================== -->
+
+<section class="section">
+
+  <div class="glass reveal">
+
+    <div class="ornament">
+      ♡
+    </div>
+
+    <h2 class="final-message">
+
+      ننتظر حضوركم بكل حب وفرح
+
+    </h2>
+
+    <p class="final-sub">
+
+      ففرحتنا لا تكتمل إلا بوجود من نحب بجانبنا،
+      ونتمنى أن تجمعنا هذه المناسبة على أجمل الذكريات.
+
+    </p>
+
+    <div class="signature">
+      سهام
+    </div>
+
+  </div>
+
+</section>
+
+
+<footer>
+
+  <strong>
+    صُنع بكل حب 🤍
+  </strong>
+
+  <div style="margin-top:8px;font-size:.82rem">
+    سهام
+  </div>
+
+</footer>
+
+</main>
+
+
+<!-- =====================================================
+     CAMERA FLOATING BUTTON
+===================================================== -->
+
+<div class="camera-float-wrap">
+  <button id="cameraButton" type="button" aria-label="فتح الكاميرا">
+    <span class="camera-main-icon"></span>
+  </button>
+  <div class="camera-float-label">شارك صورة مع العروسين</div>
+</div>
+
+
+<!-- =====================================================
+     CAMERA
+===================================================== -->
+
+<div id="cameraModal">
+
+
+  <div class="camera-panel">
+
+
+    <!-- CAMERA LIVE -->
+
+    <div
+      id="liveCamera"
+      class="camera-stage">
+
+
+      <video
+        id="cameraVideo"
+        autoplay
+        playsinline>
+      </video>
+
+
+      <!-- TOP -->
+
+      <div class="camera-top">
+
+        <div class="camera-top-left">
+
+          <button
+            id="flashButton"
+            class="snap-button"
+            type="button">
+
+            ⚡
+
+          </button>
+
+          <span class="camera-title">
+            سهام
+          </span>
+
+        </div>
+
+
+        <div class="camera-top-right">
+
+          <button
+            id="cameraClose"
+            class="camera-close"
+            type="button">
+
+            ×
+
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- FILTER -->
+
+      <div class="camera-filter">
+        <img id="cameraFilterOverlay" src="camera-filter.png" alt="" aria-hidden="true">
+      </div>
+
+
+      <!-- STATUS -->
+
+      <div id="cameraStatus"></div>
+
+
+      <!-- BOTTOM -->
+
+      <div class="camera-bottom">
+
+
+        <button
+          id="switchCamera"
+          class="camera-tool"
+          type="button">
+
+          🔄
+
+        </button>
+
+
+        <button
+          id="captureButton"
+          class="capture-button"
+          type="button"
+          aria-label="التقاط الصورة">
+        </button>
+
+
+        <button
+          id="cameraCloseBottom"
+          class="camera-tool"
+          type="button">
+
+          ✕
+
+        </button>
+
+
+      </div>
+
+
+    </div>
+
+
+    <!-- =================================================
+         PREVIEW
+    ================================================= -->
+
+    <div id="photoPreview">
+
+
+      <canvas
+        id="previewCanvas">
+      </canvas>
+
+
+      <input
+        id="photoGuestName"
+        class="preview-name"
+        type="text"
+        placeholder="اكتب اسمك لإرسال الصورة"
+        maxlength="80">
+
+
+      <div class="preview-actions">
+
+
+        <button
+          id="retakeButton"
+          type="button">
+
+          إعادة التصوير
+
+        </button>
+
+
+        <button
+          id="sendPhotoButton"
+          type="button">
+
+          إرسال الصورة 📸
+
+        </button>
+
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+</div>
+
+
+<!-- =====================================================
+     BOTTOM NAVIGATION
+===================================================== -->
+<nav class="bottom-nav" aria-label="التنقل داخل الدعوة">
+  <a href="#main" class="nav-item active" data-nav="home">
+    <span class="nav-icon">⌂</span><span>الرئيسية</span>
+  </a>
+  <a href="#dateSection" class="nav-item" data-nav="date">
+    <span class="nav-icon">▣</span><span>الموعد</span>
+  </a>
+  <a href="#locationSection" class="nav-item" data-nav="location">
+    <span class="nav-icon">⌖</span><span>المكان</span>
+  </a>
+  <a href="#gallerySection" class="nav-item" data-nav="gallery">
+    <span class="nav-icon">▧</span><span>الصور</span>
+  </a>
+  <button class="nav-item nav-camera" id="navCameraButton" type="button">
+    <span class="nav-icon">⌾</span><span>شارك</span>
+  </button>
+</nav>
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =====================================================
+   GOOGLE APPS SCRIPT
+===================================================== */
+
+const SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbyenVjPER5Y4nqjcrk6GPyIfm4I8v9vyElWgfW0TJRE4dzBG-2obsEwyHeM4kujf-I56g/exec";
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const opening =
+document.getElementById("opening");
+
+const openingVideo =
+document.getElementById("openingVideo");
+
+const main =
+document.getElementById("main");
+
+const music =
+document.getElementById("music");
+
+const musicBtn =
+document.getElementById("musicBtn");
+
+const cameraButton =
+document.getElementById("cameraButton");
+
+const navCameraButton =
+document.getElementById("navCameraButton");
+
+const cameraModal =
+document.getElementById("cameraModal");
+
+const cameraVideo =
+document.getElementById("cameraVideo");
+
+const cameraStatus =
+document.getElementById("cameraStatus");
+
+const captureButton =
+document.getElementById("captureButton");
+
+const switchCamera =
+document.getElementById("switchCamera");
+
+const flashButton =
+document.getElementById("flashButton");
+
+const cameraClose =
+document.getElementById("cameraClose");
+
+const cameraCloseBottom =
+document.getElementById("cameraCloseBottom");
+
+const liveCamera =
+document.getElementById("liveCamera");
+
+const photoPreview =
+document.getElementById("photoPreview");
+
+const previewCanvas =
+document.getElementById("previewCanvas");
+
+const retakeButton =
+document.getElementById("retakeButton");
+
+const sendPhotoButton =
+document.getElementById("sendPhotoButton");
+
+const photoGuestName =
+document.getElementById("photoGuestName");
+
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+let musicPlaying = false;
+
+let cameraStream = null;
+
+let facingMode = "user";
+
+let capturedImage = null;
+
+let flashOn = false;
+
+const cameraFilterImage = new Image();
+cameraFilterImage.src = "camera-filter.png";
+
+
+/* =====================================================
+   OPEN INVITATION
+===================================================== */
+
+function openInvitation(){
+  if (opening.classList.contains("opening")) return;
+
+  opening.classList.add("opening");
+
+  music.volume = .28;
+
+  music.play()
+  .then(()=>{
+
+    musicPlaying = true;
+
+    musicBtn.classList.add("playing");
+
+    musicBtn.textContent = "◼";
+
+  })
+  .catch(()=>{});
+
+
+  setTimeout(()=>{
+
+    opening.style.display = "none";
+
+    main.style.display = "block";
+
+    musicBtn.style.display = "block";
+
+    cameraButton.style.display = "flex";
+
+    initReveal();
+
+  },1100);
+
+}
+
+if (openingVideo) {
+  openingVideo.addEventListener("ended", openInvitation, { once: true });
+}
+
+
+/* =====================================================
+   MUSIC
+===================================================== */
+
+musicBtn.addEventListener(
+  "click",
+  async(event)=>{
+
+    event.stopPropagation();
+
+    if(musicPlaying){
+
+      music.pause();
+
+      musicPlaying = false;
+
+      musicBtn.classList.remove("playing");
+
+      musicBtn.textContent = "♫";
+
+    }
+
+    else{
+
+      try{
+
+        await music.play();
+
+        musicPlaying = true;
+
+        musicBtn.classList.add("playing");
+
+        musicBtn.textContent = "◼";
+
+      }
+
+      catch(error){}
+
+    }
+
+  }
+);
+
+
+/* =====================================================
+   COUNTDOWN
+===================================================== */
+
+const eventDate =
+new Date(
+  2026,
+  11,
+  19,
+  11,
+  0,
+  0
+).getTime();
+
+
+function updateCountdown(){
+
+  const distance =
+  eventDate - Date.now();
+
+
+  if(distance <= 0){
+
+    document.getElementById("countdown").innerHTML =
+    '<div style="grid-column:1/-1;color:#fffaf2;font-family:"Noto Naskh Arabic",serif;font-size:2rem">أهلًا بكم، لقد حان موعد فرحتنا ✨</div>';
+
+    return;
+
+  }
+
+
+  const days =
+  Math.floor(
+    distance /
+    (1000*60*60*24)
+  );
+
+
+  const hours =
+  Math.floor(
+    (distance %
+    (1000*60*60*24)) /
+    (1000*60*60)
+  );
+
+
+  const minutes =
+  Math.floor(
+    (distance %
+    (1000*60*60)) /
+    (1000*60)
+  );
+
+
+  const seconds =
+  Math.floor(
+    (distance %
+    (1000*60)) /
+    1000
+  );
+
+
+  document.getElementById("days")
+  .textContent =
+  String(days).padStart(2,"0");
+
+
+  document.getElementById("hours")
+  .textContent =
+  String(hours).padStart(2,"0");
+
+
+  document.getElementById("minutes")
+  .textContent =
+  String(minutes).padStart(2,"0");
+
+
+  document.getElementById("seconds")
+  .textContent =
+  String(seconds).padStart(2,"0");
+
+}
+
+updateCountdown();
+
+setInterval(
+  updateCountdown,
+  1000
+);
+
+
+/* =====================================================
+   REVEAL
+===================================================== */
+
+function initReveal(){
+
+  const elements =
+  document.querySelectorAll(".reveal");
+
+
+  const observer =
+  new IntersectionObserver(
+    entries=>{
+
+      entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+          entry.target.classList.add(
+            "visible"
+          );
+
+          observer.unobserve(
+            entry.target
+          );
+
+        }
+
+      });
+
+    },
+    {
+      threshold:.12
+    }
+  );
+
+
+  elements.forEach(
+    el=>observer.observe(el)
+  );
+
+}
+
+
+/* =====================================================
+   WISHES
+===================================================== */
+
+document
+.getElementById("wishSubmit")
+.addEventListener(
+  "click",
+  async()=>{
+
+    const name =
+    document
+    .getElementById("wishName")
+    .value
+    .trim();
+
+
+    const message =
+    document
+    .getElementById("wishMessage")
+    .value
+    .trim();
+
+
+    const status =
+    document.getElementById(
+      "wishStatus"
+    );
+
+
+    const button =
+    document.getElementById(
+      "wishSubmit"
+    );
+
+
+    if(!name){
+
+      status.textContent =
+      "يرجى كتابة اسمك 🤍";
+
+      return;
+
+    }
+
+
+    if(!message){
+
+      status.textContent =
+      "اكتب تهنئتك أولًا 🤍";
+
+      return;
+
+    }
+
+
+    button.disabled = true;
+
+    button.textContent =
+    "جاري الإرسال...";
+
+
+    try{
+
+      const response =
+      await fetch(
+        SCRIPT_URL,
+        {
+          method:"POST",
+
+          headers:{
+            "Content-Type":
+            "text/plain;charset=utf-8"
+          },
+
+          body:JSON.stringify({
+
+            type:"wish",
+
+            name:name,
+
+            message:message
+
+          })
+
+        }
+      );
+
+
+      const result =
+      await response.json();
+
+
+      if(result.success){
+
+        status.textContent =
+        "تم إرسال تهنئتك بنجاح 🤍";
+
+
+        document
+        .getElementById("wishName")
+        .value = "";
+
+
+        document
+        .getElementById("wishMessage")
+        .value = "";
+
+      }
+
+      else{
+
+        throw new Error(
+          result.error ||
+          "حدث خطأ"
+        );
+
+      }
+
+    }
+
+    catch(error){
+
+      console.error(error);
+
+      status.textContent =
+      "تعذر إرسال التهنئة، حاول مرة أخرى.";
+
+    }
+
+
+    button.disabled = false;
+
+    button.textContent =
+    "إرسال التهنئة 🤍";
+
+  }
+);
+
+
+/* =====================================================
+   OPEN CAMERA
+===================================================== */
+
+async function openCamera(){
+
+    cameraModal.classList.add(
+      "active"
+    );
+
+    photoPreview.classList.remove(
+      "active"
+    );
+
+    liveCamera.style.display =
+    "block";
+
+    cameraStatus.textContent =
+    "جاري تشغيل الكاميرا...";
+
+
+    await startCamera();
+
+}
+
+cameraButton.addEventListener("click", openCamera);
+navCameraButton.addEventListener("click", openCamera);
+
+
+/* =====================================================
+   START CAMERA
+===================================================== */
+
+async function startCamera(){
+
+  stopCamera();
+
+  flashOn = false;
+
+  flashButton.classList.remove(
+    "flash-active"
+  );
+
+
+  try{
+
+    cameraStream =
+    await navigator.mediaDevices
+    .getUserMedia({
+
+      video:{
+
+        facingMode:facingMode,
+
+        width:{
+          ideal:1080
+        },
+
+        height:{
+          ideal:1440
+        }
+
+      },
+
+      audio:false
+
+    });
+
+
+    cameraVideo.srcObject =
+    cameraStream;
+
+
+    cameraStatus.textContent =
+    "الكاميرا جاهزة 📸";
+
+
+    updateFlashAvailability();
+
+  }
+
+  catch(error){
+
+    console.error(error);
+
+    cameraStatus.innerHTML =
+    "لم نتمكن من تشغيل الكاميرا.<br>تأكد من السماح باستخدام الكاميرا.";
+
+  }
+
+}
+
+
+/* =====================================================
+   FLASH
+===================================================== */
+
+function updateFlashAvailability(){
+
+  if(!cameraStream)
+    return;
+
+
+  const track =
+  cameraStream.getVideoTracks()[0];
+
+
+  if(!track)
+    return;
+
+
+  const capabilities =
+  track.getCapabilities
+  ? track.getCapabilities()
+  : {};
+
+
+  if(!capabilities.torch){
+
+    flashButton.style.opacity =
+    ".45";
+
+  }
+
+  else{
+
+    flashButton.style.opacity =
+    "1";
+
+  }
+
+}
+
+
+flashButton.addEventListener(
+  "click",
+  async()=>{
+
+    if(!cameraStream)
+      return;
+
+
+    const track =
+    cameraStream.getVideoTracks()[0];
+
+
+    if(!track)
+      return;
+
+
+    const capabilities =
+    track.getCapabilities
+    ? track.getCapabilities()
+    : {};
+
+
+    if(!capabilities.torch){
+
+      cameraStatus.textContent =
+      "الفلاش غير مدعوم على هذا الجهاز.";
+
+      return;
+
+    }
+
+
+    flashOn =
+    !flashOn;
+
+
+    try{
+
+      await track.applyConstraints({
+
+        advanced:[
+          {
+            torch:flashOn
+          }
+        ]
+
+      });
+
+
+      flashButton.classList.toggle(
+        "flash-active",
+        flashOn
+      );
+
+
+      cameraStatus.textContent =
+      flashOn
+      ? "الفلاش مفعّل ⚡"
+      : "الفلاش مغلق";
+
+    }
+
+    catch(error){
+
+      console.error(error);
+
+      cameraStatus.textContent =
+      "لا يمكن تشغيل الفلاش على هذا الجهاز.";
+
+    }
+
+  }
+);
+
+
+/* =====================================================
+   SWITCH CAMERA
+===================================================== */
+
+switchCamera.addEventListener(
+  "click",
+  async()=>{
+
+    facingMode =
+    facingMode === "user"
+    ? "environment"
+    : "user";
+
+
+    await startCamera();
+
+  }
+);
+
+
+/* =====================================================
+   CAPTURE PHOTO
+===================================================== */
+
+captureButton.addEventListener(
+  "click",
+  ()=>{
+
+    if(!cameraStream){
+
+      cameraStatus.textContent =
+      "الكاميرا غير جاهزة.";
+
+      return;
+
+    }
+
+
+    const width =
+    cameraVideo.videoWidth;
+
+
+    const height =
+    cameraVideo.videoHeight;
+
+
+    if(!width || !height){
+
+      cameraStatus.textContent =
+      "انتظر لحظة حتى تجهز الكاميرا.";
+
+      return;
+
+    }
+
+
+    previewCanvas.width =
+    width;
+
+    previewCanvas.height =
+    height;
+
+
+    const ctx =
+    previewCanvas.getContext("2d");
+
+
+    if(facingMode === "user"){
+
+      ctx.translate(
+        width,
+        0
+      );
+
+      ctx.scale(
+        -1,
+        1
+      );
+
+    }
+
+
+    ctx.drawImage(
+      cameraVideo,
+      0,
+      0,
+      width,
+      height
+    );
+
+
+    ctx.setTransform(
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+    );
+
+
+    drawPhotoFilterImage(ctx, width, height);
+
+
+    capturedImage =
+    previewCanvas.toDataURL(
+      "image/jpeg",
+      .88
+    );
+
+
+    liveCamera.style.display =
+    "none";
+
+
+    photoPreview.classList.add(
+      "active"
+    );
+
+
+    cameraStatus.textContent =
+    "تم التقاط الصورة 🤍";
+
+
+    stopCamera();
+
+  }
+);
+
+
+/* =====================================================
+   DRAW PHOTO FILTER
+===================================================== */
+
+function drawPhotoFilterImage(ctx, width, height){
+
+  const filter = cameraFilterImage;
+
+  if(filter.complete && filter.naturalWidth){
+    ctx.drawImage(filter, 0, 0, width, height);
+  }
+
+}
+
+
+/* =====================================================
+   RETAKE
+===================================================== */
+
+retakeButton.addEventListener(
+  "click",
+  async()=>{
+
+    photoPreview.classList.remove(
+      "active"
+    );
+
+    liveCamera.style.display =
+    "block";
+
+    cameraStatus.textContent =
+    "جاري تشغيل الكاميرا...";
+
+
+    await startCamera();
+
+  }
+);
+
+
+/* =====================================================
+   SEND PHOTO
+===================================================== */
+
+sendPhotoButton.addEventListener(
+  "click",
+  async()=>{
+
+    const name =
+    photoGuestName
+    .value
+    .trim();
+
+
+    if(!name){
+
+      cameraStatus.textContent =
+      "يرجى كتابة اسمك قبل إرسال الصورة.";
+
+      return;
+
+    }
+
+
+    if(!capturedImage){
+
+      cameraStatus.textContent =
+      "لم يتم التقاط صورة.";
+
+      return;
+
+    }
+
+
+    sendPhotoButton.disabled =
+    true;
+
+    retakeButton.disabled =
+    true;
+
+
+    sendPhotoButton.textContent =
+    "جاري الإرسال...";
+
+
+    cameraStatus.textContent =
+    "جاري رفع الصورة ⏳";
+
+
+    try{
+
+      const response =
+      await fetch(
+        SCRIPT_URL,
+        {
+
+          method:"POST",
+
+          headers:{
+            "Content-Type":
+            "text/plain;charset=utf-8"
+          },
+
+          body:JSON.stringify({
+
+            type:"photo",
+
+            name:name,
+
+            image:capturedImage
+
+          })
+
+        }
+      );
+
+
+      const result =
+      await response.json();
+
+
+      if(result.success){
+
+        cameraStatus.innerHTML =
+        "تم إرسال صورتك بنجاح 🤍📸<br>شكرًا لمشاركتنا فرحتنا.";
+
+
+        sendPhotoButton.textContent =
+        "تم الإرسال ✓";
+
+
+        setTimeout(
+          closeCamera,
+          2200
+        );
+
+      }
+
+      else{
+
+        throw new Error(
+          result.error ||
+          "حدث خطأ"
+        );
+
+      }
+
+    }
+
+    catch(error){
+
+      console.error(error);
+
+      cameraStatus.textContent =
+      "تعذر إرسال الصورة. حاول مرة أخرى.";
+
+      sendPhotoButton.disabled =
+      false;
+
+      retakeButton.disabled =
+      false;
+
+      sendPhotoButton.textContent =
+      "إرسال الصورة 📸";
+
+    }
+
+  }
+);
+
+
+/* =====================================================
+   GALLERY
+===================================================== */
+
+const galleryImages = [
+  "gallery1.jpg",
+  "gallery2.jpg",
+  "gallery3.jpg",
+  "gallery4.jpg",
+  "gallery5.jpg"
+];
+
+let galleryIndex = 0;
+const galleryLightbox = document.getElementById("galleryLightbox");
+const galleryLightboxImage = document.getElementById("galleryLightboxImage");
+const galleryCounter = document.getElementById("galleryCounter");
+
+function showGalleryImage(index){
+  galleryIndex = (index + galleryImages.length) % galleryImages.length;
+  galleryLightboxImage.src = galleryImages[galleryIndex];
+  galleryCounter.textContent = `${galleryIndex + 1} / ${galleryImages.length}`;
+}
+
+document.querySelectorAll(".gallery-item").forEach(item=>{
+  item.addEventListener("click",()=>{
+    showGalleryImage(Number(item.dataset.gallery));
+    galleryLightbox.classList.add("active");
+    galleryLightbox.setAttribute("aria-hidden","false");
+  });
+});
+
+document.getElementById("galleryClose").addEventListener("click",()=>{
+  galleryLightbox.classList.remove("active");
+  galleryLightbox.setAttribute("aria-hidden","true");
+});
+
+document.getElementById("galleryPrev").addEventListener("click",()=>showGalleryImage(galleryIndex-1));
+document.getElementById("galleryNext").addEventListener("click",()=>showGalleryImage(galleryIndex+1));
+
+galleryLightbox.addEventListener("click",event=>{
+  if(event.target === galleryLightbox){
+    galleryLightbox.classList.remove("active");
+    galleryLightbox.setAttribute("aria-hidden","true");
+  }
+});
+
+document.addEventListener("keydown",event=>{
+  if(!galleryLightbox.classList.contains("active")) return;
+  if(event.key === "Escape") galleryLightbox.classList.remove("active");
+  if(event.key === "ArrowRight") showGalleryImage(galleryIndex+1);
+  if(event.key === "ArrowLeft") showGalleryImage(galleryIndex-1);
+});
+
+/* =====================================================
+   BOTTOM NAV ACTIVE STATE
+===================================================== */
+
+const navItems = document.querySelectorAll(".bottom-nav .nav-item[data-nav]");
+const navSections = [
+  {id:"main", key:"home"},
+  {id:"dateSection", key:"date"},
+  {id:"locationSection", key:"location"},
+  {id:"gallerySection", key:"gallery"}
+];
+
+const navObserver = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      const match = navSections.find(s=>s.id === entry.target.id);
+      if(!match) return;
+      navItems.forEach(item=>item.classList.toggle("active", item.dataset.nav === match.key));
+    }
+  });
+},{threshold:.35});
+
+navSections.forEach(s=>{
+  const el=document.getElementById(s.id);
+  if(el) navObserver.observe(el);
+});
+
+
+/* =====================================================
+   CLOSE CAMERA
+===================================================== */
+
+cameraClose.addEventListener(
+  "click",
+  closeCamera
+);
+
+cameraCloseBottom.addEventListener(
+  "click",
+  closeCamera
+);
+
+
+function closeCamera(){
+
+  stopCamera();
+
+  cameraModal.classList.remove(
+    "active"
+  );
+
+  photoPreview.classList.remove(
+    "active"
+  );
+
+  liveCamera.style.display =
+  "block";
+
+  cameraStatus.textContent =
+  "";
+
+  capturedImage =
+  null;
+
+  photoGuestName.value =
+  "";
+
+  sendPhotoButton.disabled =
+  false;
+
+  retakeButton.disabled =
+  false;
+
+  sendPhotoButton.textContent =
+  "إرسال الصورة 📸";
+
+}
+
+
+/* =====================================================
+   STOP CAMERA
+===================================================== */
+
+function stopCamera(){
+
+  if(cameraStream){
+
+    cameraStream
+    .getTracks()
+    .forEach(
+      track=>track.stop()
+    );
+
+    cameraStream =
+    null;
+
+  }
+
+  cameraVideo.srcObject =
+  null;
+
+}
+
+
+</script>
+
+
+
+
+</body>
+</html>
