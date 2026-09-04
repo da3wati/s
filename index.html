@@ -18,7 +18,7 @@
       href="https://fonts.gstatic.com"
       crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&family=El+Messiri:wght@400;500;600;700&display=swap"
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink:wght@400;700&family=Cairo:wght@400;500;600;700;800&family=El+Messiri:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap"
       rel="stylesheet">
 
 
@@ -71,7 +71,7 @@ body{
 
   color:var(--white);
 
-  font-family:"El Messiri",sans-serif;
+  font-family:"Cairo","El Messiri",sans-serif;
 
   overflow-x:hidden;
 
@@ -447,7 +447,7 @@ a{
 
 .bismillah{
 
-  font-family:"Noto Naskh Arabic",serif;
+  font-family:"Aref Ruqaa Ink","Noto Naskh Arabic",serif;
 
   font-size:
     clamp(2rem,5vw,3.4rem);
@@ -460,7 +460,7 @@ a{
 
 .quran{
 
-  font-family:"Noto Naskh Arabic",serif;
+  font-family:"Aref Ruqaa Ink","Noto Naskh Arabic",serif;
 
   font-size:
     clamp(1.45rem,4vw,2.25rem);
@@ -495,16 +495,18 @@ a{
 
 .names{
 
-  font-family:"Noto Naskh Arabic",serif;
+  font-family:"Aref Ruqaa Ink","Noto Naskh Arabic",serif;
 
   color:var(--beige-light);
 
   font-size:
     clamp(3rem,9vw,6rem);
 
-  line-height:1.2;
+  line-height:1.35;
 
   margin:12px 0;
+
+  letter-spacing:.01em;
 
   text-shadow:
 
@@ -521,6 +523,21 @@ a{
   font-size:.7em;
 
 }
+
+.names .name-separator{
+  display:inline-block;
+  margin:0 .16em;
+  color:var(--gold-light);
+  font-family:"El Messiri",sans-serif;
+  font-size:.34em;
+  vertical-align:middle;
+  opacity:.9;
+}
+
+.names .person-name{
+  display:inline-block;
+}
+
 
 .message{
 
@@ -579,7 +596,7 @@ a{
 
 .date-title{
 
-  font-family:"Noto Naskh Arabic",serif;
+  font-family:"Aref Ruqaa Ink","Noto Naskh Arabic",serif;
 
   font-size:
     clamp(2rem,5vw,3.4rem);
@@ -603,60 +620,60 @@ a{
 }
 
 .countdown{
-
   display:grid;
-
-  grid-template-columns:
-    repeat(4,1fr);
-
-  gap:10px;
-
-  max-width:680px;
-
-  margin:auto;
-
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:12px;
+  max-width:760px;
+  margin:24px auto 0;
+  align-items:stretch;
 }
 
 .counter{
+  min-width:0;
+  padding:16px 8px 14px;
+  border-radius:22px;
+  background:linear-gradient(145deg,rgba(255,255,255,.12),rgba(255,248,236,.035));
+  border:1px solid rgba(245,224,184,.22);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.10),0 12px 30px rgba(0,0,0,.18);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+}
 
-  padding:17px 8px;
-
-  border-radius:20px;
-
-  background:var(--glass-light);
-
-  border:
-    1px solid rgba(245,224,184,.20);
-
-  backdrop-filter:blur(10px);
-
+.counter-icon{
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  color:var(--gold-light);
+  border:1px solid rgba(243,217,154,.28);
+  background:rgba(255,255,255,.06);
+  box-shadow:0 0 18px rgba(201,163,91,.10);
+  font-size:18px;
 }
 
 .counter strong{
-
   display:block;
-
-  font-size:
-    clamp(1.9rem,6vw,3.2rem);
-
+  font-family:"El Messiri",sans-serif;
+  font-size:clamp(1.8rem,5vw,3rem);
   color:#fffaf2;
-
   line-height:1;
-
+  font-weight:700;
+  direction:ltr;
 }
 
 .counter span{
-
   display:block;
-
-  margin-top:9px;
-
+  margin-top:0;
   color:var(--beige);
-
-  font-size:.8rem;
-
+  font-family:"Cairo",sans-serif;
+  font-size:.78rem;
   font-weight:700;
-
 }
 
 
@@ -666,7 +683,7 @@ a{
 
 .section-title{
 
-  font-family:"Noto Naskh Arabic",serif;
+  font-family:"Aref Ruqaa Ink","Noto Naskh Arabic",serif;
 
   color:var(--beige-light);
 
@@ -711,7 +728,7 @@ a{
 
 .venue-name{
 
-  font-family:"Noto Naskh Arabic",serif;
+  font-family:"Aref Ruqaa Ink","Noto Naskh Arabic",serif;
 
   color:#fffaf2;
 
@@ -749,6 +766,16 @@ a{
 
 }
 
+.map-wrap{
+  width:100%;
+  margin:4px auto 20px;
+  padding:8px;
+  border-radius:26px;
+  background:linear-gradient(135deg,rgba(255,255,255,.10),rgba(255,255,255,.035));
+  border:1px solid rgba(255,255,255,.14);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+}
 .map-button{
 
   display:inline-flex;
@@ -894,7 +921,7 @@ a{
 
 .no-photo-title{
 
-  font-family:"Noto Naskh Arabic",serif;
+  font-family:"Aref Ruqaa Ink","Noto Naskh Arabic",serif;
 
   font-size:
     clamp(2rem,5vw,3rem);
@@ -927,7 +954,7 @@ a{
 
 .wishes-title{
 
-  font-family:"Noto Naskh Arabic",serif;
+  font-family:"Aref Ruqaa Ink","Noto Naskh Arabic",serif;
 
   color:var(--beige-light);
 
@@ -1027,7 +1054,7 @@ a{
 
 .final-message{
 
-  font-family:"Noto Naskh Arabic",serif;
+  font-family:"Aref Ruqaa Ink","Noto Naskh Arabic",serif;
 
   font-size:
     clamp(2rem,5vw,3.4rem);
@@ -1765,6 +1792,22 @@ footer strong{
 }
 
 
+
+/* FINAL CUSTOM REFINEMENTS */
+.ornament{display:none !important;}
+.names{font-family:"Aref Ruqaa Ink","Noto Naskh Arabic",serif;font-weight:700;}
+.signature{font-family:"Aref Ruqaa Ink","Noto Naskh Arabic",serif;font-weight:700;}
+.countdown{direction:rtl;}
+.counter-icon{font-family:"El Messiri",sans-serif;font-weight:700;}
+#cameraButton{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,rgba(255,255,255,.16),rgba(201,163,91,.18));border:1px solid rgba(243,217,154,.45);box-shadow:0 10px 30px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.18);}
+.camera-main-icon{width:28px;height:21px;border:2px solid #f3d99a;border-radius:7px;position:relative;display:block;}
+.camera-main-icon:before{content:"";position:absolute;width:10px;height:6px;border:2px solid #f3d99a;border-bottom:0;border-radius:4px 4px 0 0;left:6px;top:-8px;}
+.camera-main-icon:after{content:"";position:absolute;width:8px;height:8px;border:2px solid #f3d99a;border-radius:50%;left:8px;top:4px;}
+.bottom-nav{grid-template-columns:repeat(5,1fr);}
+.nav-item{font-family:"Cairo",sans-serif;font-size:.72rem;}
+.nav-item .nav-icon{font-size:22px;}
+@media(max-width:650px){.countdown{grid-template-columns:repeat(4,minmax(0,1fr));direction:rtl;gap:5px}.counter{padding:9px 2px}.counter-icon{width:30px;height:30px;font-size:15px}.counter strong{font-size:1.55rem}.counter span{font-size:.68rem}.bottom-nav{width:calc(100% - 14px);bottom:8px;padding:6px;border-radius:20px}.nav-item{padding:8px 2px 6px;font-size:.62rem}}
+
 /* =====================================================
    MOBILE
 ===================================================== */
@@ -1774,21 +1817,32 @@ footer strong{
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  margin:22px auto 8px;
+  width:min(330px,100%);
+  margin:24px auto 22px;
+  padding:18px;
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:28px;
+  background:linear-gradient(135deg,rgba(255,255,255,.12),rgba(255,255,255,.035));
+  backdrop-filter:blur(18px) saturate(130%);
+  -webkit-backdrop-filter:blur(18px) saturate(130%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.13),0 20px 50px rgba(0,0,0,.25);
 }
 
 .venue-qr{
-  width:min(260px,72vw);
+  width:min(250px,72vw);
   height:auto;
   display:block;
-  background:#fff;
   padding:12px;
-  border-radius:18px;
+  border-radius:20px;
+  background:rgba(255,255,255,.90);
+  border:1px solid rgba(255,255,255,.55);
+  box-shadow:0 12px 35px rgba(0,0,0,.20);
 }
 
 .venue-qr-text{
   margin:12px 0 0;
-  font-size:.9rem;
+  font-family:"Cairo",sans-serif;
+  font-size:.82rem;
   color:var(--beige-light);
 }
 
@@ -1809,8 +1863,23 @@ footer strong{
   }
 
   .countdown{
-    grid-template-columns:
-      repeat(2,1fr);
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:6px;
+  }
+  .counter{
+    padding:11px 3px 10px;
+    border-radius:16px;
+  }
+  .counter-icon{
+    width:30px;
+    height:30px;
+    font-size:14px;
+  }
+  .counter strong{
+    font-size:clamp(1.35rem,7vw,2.1rem);
+  }
+  .counter span{
+    font-size:.62rem;
   }
 
   .map{
@@ -2025,6 +2094,94 @@ footer strong{
 .gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease;}
 .gallery-item:hover img{transform:scale(1.05);}
 
+.gallery-slideshow{
+  width:100%;
+  max-width:760px;
+  margin:22px auto 0;
+}
+
+.gallery-slide-frame{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/10;
+  overflow:hidden;
+  border-radius:26px;
+  border:1px solid rgba(245,224,184,.24);
+  background:rgba(0,0,0,.25);
+  box-shadow:0 24px 65px rgba(0,0,0,.35);
+}
+
+.gallery-slide-frame img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:opacity .35s ease,transform .7s ease;
+}
+
+.gallery-slide-frame img.is-changing{
+  opacity:.18;
+  transform:scale(1.025);
+}
+
+.gallery-slide-shade{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.45),transparent 45%);
+  pointer-events:none;
+}
+
+.gallery-slide-counter{
+  position:absolute;
+  left:16px;
+  bottom:14px;
+  padding:7px 12px;
+  border-radius:999px;
+  color:#fffaf2;
+  background:rgba(10,8,5,.45);
+  border:1px solid rgba(255,255,255,.16);
+  backdrop-filter:blur(10px);
+  font-size:.78rem;
+  font-weight:700;
+}
+
+.gallery-dots{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  margin:14px 0;
+}
+
+.gallery-dot{
+  width:8px;
+  height:8px;
+  border:0;
+  border-radius:50%;
+  padding:0;
+  background:rgba(255,255,255,.30);
+  cursor:pointer;
+  transition:.25s ease;
+}
+
+.gallery-dot.active{
+  width:24px;
+  border-radius:999px;
+  background:var(--gold-light);
+}
+
+.gallery-open-button{
+  border:1px solid rgba(245,224,184,.28);
+  color:#fffaf2;
+  background:rgba(255,255,255,.08);
+  padding:12px 24px;
+  border-radius:999px;
+  font-family:"Cairo",sans-serif;
+  font-weight:700;
+  cursor:pointer;
+  backdrop-filter:blur(12px);
+}
+
 #galleryLightbox{
   position:fixed;
   inset:0;
@@ -2077,9 +2234,196 @@ footer strong{
   .camera-float-label{font-size:.63rem;}
   .gallery-grid{grid-template-columns:1fr 1fr;grid-auto-rows:150px;}
   .gallery-item-large{grid-column:span 2;grid-row:span 1;}
-  #galleryLightbox{padding:35px 20px;}
+  .gallery-slideshow{
+  width:100%;
+  max-width:760px;
+  margin:22px auto 0;
 }
 
+.gallery-slide-frame{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/10;
+  overflow:hidden;
+  border-radius:26px;
+  border:1px solid rgba(245,224,184,.24);
+  background:rgba(0,0,0,.25);
+  box-shadow:0 24px 65px rgba(0,0,0,.35);
+}
+
+.gallery-slide-frame img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:opacity .35s ease,transform .7s ease;
+}
+
+.gallery-slide-frame img.is-changing{
+  opacity:.18;
+  transform:scale(1.025);
+}
+
+.gallery-slide-shade{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.45),transparent 45%);
+  pointer-events:none;
+}
+
+.gallery-slide-counter{
+  position:absolute;
+  left:16px;
+  bottom:14px;
+  padding:7px 12px;
+  border-radius:999px;
+  color:#fffaf2;
+  background:rgba(10,8,5,.45);
+  border:1px solid rgba(255,255,255,.16);
+  backdrop-filter:blur(10px);
+  font-size:.78rem;
+  font-weight:700;
+}
+
+.gallery-dots{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  margin:14px 0;
+}
+
+.gallery-dot{
+  width:8px;
+  height:8px;
+  border:0;
+  border-radius:50%;
+  padding:0;
+  background:rgba(255,255,255,.30);
+  cursor:pointer;
+  transition:.25s ease;
+}
+
+.gallery-dot.active{
+  width:24px;
+  border-radius:999px;
+  background:var(--gold-light);
+}
+
+.gallery-open-button{
+  border:1px solid rgba(245,224,184,.28);
+  color:#fffaf2;
+  background:rgba(255,255,255,.08);
+  padding:12px 24px;
+  border-radius:999px;
+  font-family:"Cairo",sans-serif;
+  font-weight:700;
+  cursor:pointer;
+  backdrop-filter:blur(12px);
+}
+
+#galleryLightbox{padding:35px 20px;}
+}
+
+</style>
+
+
+<style id="wedding-program-style">
+#wedding-program-style{}
+.wedding-timeline{
+  position:relative;
+  max-width:760px;
+  margin:28px auto 0;
+  padding:8px 0;
+}
+.wedding-timeline::before{
+  content:"";
+  position:absolute;
+  top:18px;
+  bottom:18px;
+  right:34px;
+  width:1px;
+  background:linear-gradient(to bottom,transparent,rgba(243,217,154,.65),transparent);
+}
+.timeline-item{
+  position:relative;
+  display:flex;
+  flex-direction:row-reverse;
+  align-items:center;
+  gap:18px;
+  margin:0 0 18px;
+  padding:4px 0;
+}
+.timeline-item:last-child{margin-bottom:0}
+.timeline-icon{
+  position:relative;
+  z-index:2;
+  width:68px;
+  height:68px;
+  flex:0 0 68px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  font-family:"Aref Ruqaa Ink","Noto Naskh Arabic",serif;
+  font-size:18px;
+  font-weight:700;
+  color:#fffaf2;
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(243,217,154,.55);
+  box-shadow:0 10px 28px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.18);
+  backdrop-filter:blur(12px);
+}
+.timeline-content{
+  flex:1;
+  min-width:0;
+  text-align:right;
+  padding:15px 18px;
+  border-radius:20px;
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 10px 28px rgba(0,0,0,.18),inset 0 1px 0 rgba(255,255,255,.10);
+  backdrop-filter:blur(12px);
+}
+.timeline-time{
+  display:block;
+  direction:ltr;
+  font-family:"El Messiri",sans-serif;
+  font-size:.78rem;
+  letter-spacing:.05em;
+  color:#f3d99a;
+  margin-bottom:3px;
+}
+.timeline-content h3{
+  margin:0;
+  font-family:"Aref Ruqaa Ink","Noto Naskh Arabic",serif;
+  font-size:1.35rem;
+  color:#fffaf2;
+}
+.timeline-content p{
+  margin:4px 0 0;
+  font-family:"Cairo",sans-serif;
+  font-size:.82rem;
+  line-height:1.7;
+  color:rgba(255,250,242,.76);
+}
+@media(max-width:650px){
+  .wedding-timeline{padding:5px 0}
+  .wedding-timeline::before{right:27px}
+  .timeline-item{gap:10px}
+  .timeline-icon{
+    width:54px;height:54px;flex-basis:54px;
+    font-size:14px;
+  }
+  .timeline-content{
+    padding:11px 12px;
+    border-radius:16px;
+  }
+  .timeline-content h3{font-size:1.08rem}
+  .timeline-content p{font-size:.70rem}
+  .timeline-time{font-size:.68rem}
+}
 </style>
 
 </head>
@@ -2165,9 +2509,7 @@ footer strong{
 
   <div class="glass reveal">
 
-    <div class="ornament">
-      ✦ ✦ ✦
-    </div>
+    
 
     <h1 class="bismillah">
       بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ
@@ -2190,8 +2532,10 @@ footer strong{
 
     </p>
 
-    <div class="names">
-       <span class="amp"></span> سهام
+    <div class="names" aria-label="زين الدين سهام">
+      <span class="person-name">زين الدين</span>
+      
+      <span class="person-name">سهام</span>
     </div>
 
     <p class="message">
@@ -2214,9 +2558,7 @@ footer strong{
 
   <div class="glass reveal">
 
-    <div class="ornament">
-      ✧
-    </div>
+    
 
     <img
       src="calendar.jpg"
@@ -2236,21 +2578,25 @@ footer strong{
       id="countdown">
 
       <div class="counter">
+        <div class="counter-icon" aria-hidden="true">▣</div>
         <strong id="days">00</strong>
         <span>يوم</span>
       </div>
 
       <div class="counter">
+        <div class="counter-icon" aria-hidden="true">◷</div>
         <strong id="hours">00</strong>
         <span>ساعة</span>
       </div>
 
       <div class="counter">
+        <div class="counter-icon" aria-hidden="true">◌</div>
         <strong id="minutes">00</strong>
         <span>دقيقة</span>
       </div>
 
       <div class="counter">
+        <div class="counter-icon" aria-hidden="true">✦</div>
         <strong id="seconds">00</strong>
         <span>ثانية</span>
       </div>
@@ -2266,13 +2612,60 @@ footer strong{
      LOCATION
 ===================================================== -->
 
+
+<!-- =====================================================
+     WEDDING PROGRAM
+===================================================== -->
+<section id="programSection" class="section reveal">
+  <div class="section-title">
+    <span class="section-kicker">PROGRAMME</span>
+    <h2>برنامج العرس</h2>
+    <p>تفاصيل يومنا المميز</p>
+  </div>
+
+  <div class="wedding-timeline">
+    <div class="timeline-item">
+      <div class="timeline-icon">11</div>
+      <div class="timeline-content">
+        <span class="timeline-time">11:00</span>
+        <h3>بداية العرس</h3>
+        <p>استقبال الضيوف وبداية فرحتنا</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-icon">12</div>
+      <div class="timeline-content">
+        <span class="timeline-time">12:00</span>
+        <h3>وقت الغداء</h3>
+        <p>نتشرف بمشاركتكم مائدة الغداء</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-icon">12–16</div>
+      <div class="timeline-content">
+        <span class="timeline-time">12:00 – 16:00</span>
+        <h3>العرس وتصديرة العروس</h3>
+        <p>أجواء الفرح والاحتفال مع العروسين</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-icon">17</div>
+      <div class="timeline-content">
+        <span class="timeline-time">17:00</span>
+        <h3>خروج العروس</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section" id="locationSection">
 
   <div class="glass reveal">
 
-    <div class="ornament">
-      ✦
-    </div>
+    
 
     <h2 class="section-title">
       مكان اللقاء
@@ -2283,14 +2676,29 @@ footer strong{
     </div>
 
     <h3 class="venue-name">
-      قاعة حفلات السلطان
+      salle des fete la maison dor
     </h3>
+
+    <img
+      src="venue.jpg"
+      class="venue-image"
+      alt="salle des fete la maison dor">
+
+    <div class="map-wrap">
+      <iframe
+        class="map"
+        src="https://www.google.com/maps?q=%D9%82%D8%A7%D8%B9%D8%A9%20%D8%AD%D9%81%D9%84%D8%A7%D8%AA%20%D8%A7%D9%84%D8%B3%D9%84%D8%B7%D8%A7%D9%86&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen
+        title="خريطة موقع salle des fete la maison dor"></iframe>
+    </div>
 
     <div class="venue-qr-wrap">
       <img
         src="venue-qr.png"
         class="venue-qr"
-        alt="رمز QR لموقع قاعة حفلات السلطان">
+        alt="رمز QR لموقع salle des fete la maison dor">
       <p class="venue-qr-text">
         امسح الرمز للوصول إلى موقع القاعة
       </p>
@@ -2317,16 +2725,22 @@ footer strong{
 
 <section class="section" id="gallerySection">
   <div class="glass reveal">
-    <div class="ornament">✦</div>
+    
     <h2 class="section-title">من أجمل لحظاتنا</h2>
     <div class="section-subtitle">صور نحتفظ بها بكل حب</div>
 
-    <div class="gallery-grid">
-      <button class="gallery-item gallery-item-large" data-gallery="0" type="button"><img src="gallery1.jpg" alt="صورة من أجمل لحظاتنا"></button>
-      <button class="gallery-item" data-gallery="1" type="button"><img src="gallery2.jpg" alt="صورة من أجمل لحظاتنا"></button>
-      <button class="gallery-item" data-gallery="2" type="button"><img src="gallery3.jpg" alt="صورة من أجمل لحظاتنا"></button>
-      <button class="gallery-item" data-gallery="3" type="button"><img src="gallery4.jpg" alt="صورة من أجمل لحظاتنا"></button>
-      <button class="gallery-item" data-gallery="4" type="button"><img src="gallery5.jpg" alt="صورة من أجمل لحظاتنا"></button>
+    <div class="gallery-slideshow" aria-label="معرض الصور المتحرك">
+      <div class="gallery-slide-frame">
+        <img id="galleryAutoImage" src="gallery1.jpg" alt="صورة من أجمل لحظاتنا">
+        <div class="gallery-slide-shade"></div>
+        <div class="gallery-slide-counter" id="galleryAutoCounter">1 / 5</div>
+      </div>
+
+      <div class="gallery-dots" id="galleryDots" aria-label="اختيار صورة"></div>
+
+      <button class="gallery-open-button" id="openGalleryButton" type="button">
+        مشاهدة الصور
+      </button>
     </div>
   </div>
 </section>
@@ -2351,10 +2765,6 @@ footer strong{
 
       <span class="no-photo-slash"></span>
 
-    </div>
-
-    <div class="camera-under-ban">
-      📷
     </div>
 
     <h2 class="no-photo-title">
@@ -2387,9 +2797,7 @@ footer strong{
 
   <div class="glass reveal">
 
-    <div class="ornament">
-      ♡ ✦ ♡
-    </div>
+    
 
     <h2 class="wishes-title">
       اتركوا لنا تهنئتكم
@@ -2438,9 +2846,7 @@ footer strong{
 
   <div class="glass reveal">
 
-    <div class="ornament">
-      ♡
-    </div>
+    
 
     <h2 class="final-message">
 
@@ -2456,7 +2862,7 @@ footer strong{
     </p>
 
     <div class="signature">
-      سهام
+      زين الدين ✦ سهام
     </div>
 
   </div>
@@ -2485,7 +2891,15 @@ footer strong{
 
 <div class="camera-float-wrap">
   <button id="cameraButton" type="button" aria-label="فتح الكاميرا">
-    <span class="camera-main-icon"></span>
+    <span class="camera-main-icon snap-inspired-icon" aria-hidden="true">
+  <svg viewBox="0 0 64 64" role="img">
+    <path d="M18 46c3-2 4-5 4-9V27c0-10 6-16 14-16s14 6 14 16v10c0 4 1 7 4 9-3 2-6 2-8 1-2 4-5 5-7 3-2 3-5 3-7 0-2 2-5 1-7-3-2 1-5 1-7-1Z"
+          fill="none" stroke="currentColor" stroke-width="3.2" stroke-linejoin="round"/>
+    <circle cx="31" cy="31" r="3.2" fill="currentColor"/>
+    <circle cx="41" cy="31" r="3.2" fill="currentColor"/>
+    <path d="M29 39c2.2 1.8 5.8 1.8 8 0" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+  </svg>
+</span>
   </button>
   <div class="camera-float-label">شارك صورة مع العروسين</div>
 </div>
@@ -2531,7 +2945,7 @@ footer strong{
           </button>
 
           <span class="camera-title">
-            سهام
+            زين الدين ✦ سهام
           </span>
 
         </div>
@@ -3652,7 +4066,7 @@ sendPhotoButton.addEventListener(
 
 
 /* =====================================================
-   GALLERY
+   GALLERY - AUTO SLIDESHOW
 ===================================================== */
 
 const galleryImages = [
@@ -3664,6 +4078,54 @@ const galleryImages = [
 ];
 
 let galleryIndex = 0;
+let galleryTimer = null;
+
+const galleryAutoImage = document.getElementById("galleryAutoImage");
+const galleryAutoCounter = document.getElementById("galleryAutoCounter");
+const galleryDots = document.getElementById("galleryDots");
+const openGalleryButton = document.getElementById("openGalleryButton");
+
+function renderGalleryDots(){
+  galleryDots.innerHTML = "";
+  galleryImages.forEach((_, index)=>{
+    const dot = document.createElement("button");
+    dot.type = "button";
+    dot.className = "gallery-dot" + (index === galleryIndex ? " active" : "");
+    dot.setAttribute("aria-label", `الصورة ${index + 1}`);
+    dot.addEventListener("click", ()=>{
+      showAutoGalleryImage(index);
+      restartGalleryTimer();
+    });
+    galleryDots.appendChild(dot);
+  });
+}
+
+function showAutoGalleryImage(index){
+  galleryIndex = (index + galleryImages.length) % galleryImages.length;
+  galleryAutoImage.classList.add("is-changing");
+
+  setTimeout(()=>{
+    galleryAutoImage.src = galleryImages[galleryIndex];
+    galleryAutoCounter.textContent = `${galleryIndex + 1} / ${galleryImages.length}`;
+    galleryAutoImage.classList.remove("is-changing");
+    renderGalleryDots();
+  },180);
+}
+
+function startGalleryTimer(){
+  clearInterval(galleryTimer);
+  galleryTimer = setInterval(()=>{
+    showAutoGalleryImage(galleryIndex + 1);
+  },1000);
+}
+
+function restartGalleryTimer(){
+  startGalleryTimer();
+}
+
+renderGalleryDots();
+startGalleryTimer();
+
 const galleryLightbox = document.getElementById("galleryLightbox");
 const galleryLightboxImage = document.getElementById("galleryLightboxImage");
 const galleryCounter = document.getElementById("galleryCounter");
@@ -3672,14 +4134,14 @@ function showGalleryImage(index){
   galleryIndex = (index + galleryImages.length) % galleryImages.length;
   galleryLightboxImage.src = galleryImages[galleryIndex];
   galleryCounter.textContent = `${galleryIndex + 1} / ${galleryImages.length}`;
+  showAutoGalleryImage(galleryIndex);
+  restartGalleryTimer();
 }
 
-document.querySelectorAll(".gallery-item").forEach(item=>{
-  item.addEventListener("click",()=>{
-    showGalleryImage(Number(item.dataset.gallery));
-    galleryLightbox.classList.add("active");
-    galleryLightbox.setAttribute("aria-hidden","false");
-  });
+openGalleryButton.addEventListener("click",()=>{
+  showGalleryImage(galleryIndex);
+  galleryLightbox.classList.add("active");
+  galleryLightbox.setAttribute("aria-hidden","false");
 });
 
 document.getElementById("galleryClose").addEventListener("click",()=>{
@@ -3699,7 +4161,10 @@ galleryLightbox.addEventListener("click",event=>{
 
 document.addEventListener("keydown",event=>{
   if(!galleryLightbox.classList.contains("active")) return;
-  if(event.key === "Escape") galleryLightbox.classList.remove("active");
+  if(event.key === "Escape"){
+    galleryLightbox.classList.remove("active");
+    galleryLightbox.setAttribute("aria-hidden","true");
+  }
   if(event.key === "ArrowRight") showGalleryImage(galleryIndex+1);
   if(event.key === "ArrowLeft") showGalleryImage(galleryIndex-1);
 });
@@ -3815,3 +4280,93 @@ function stopCamera(){
 
 </body>
 </html>
+<style id="final-name-font-fix">
+.names, .names .person-name, .signature { font-family:"Aref Ruqaa Ink","Noto Naskh Arabic",serif !important; }
+</style>
+
+
+
+
+
+
+
+<style id="countdown-final-order">
+.countdown{
+  direction:ltr !important;
+  display:grid !important;
+  grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+}
+.countdown .counter{
+  order:initial !important;
+}
+@media(max-width:650px){
+  .countdown{
+    direction:ltr !important;
+    grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+  }
+}
+</style>
+
+<style id="countdown-circular-fix">
+.countdown .counter{
+  aspect-ratio:1 / 1 !important;
+  width:min(145px, 20vw) !important;
+  height:auto !important;
+  min-height:0 !important;
+  border-radius:50% !important;
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  justify-content:center !important;
+  padding:16px !important;
+  overflow:hidden !important;
+}
+.countdown .counter-icon{
+  border-radius:50% !important;
+  display:grid !important;
+  place-items:center !important;
+  margin-bottom:7px !important;
+}
+@media(max-width:650px){
+  .countdown{
+    gap:5px !important;
+  }
+  .countdown .counter{
+    width:21vw !important;
+    max-width:88px !important;
+    padding:7px 3px !important;
+  }
+  .countdown .counter strong{
+    font-size:1.35rem !important;
+  }
+  .countdown .counter span{
+    font-size:.62rem !important;
+  }
+  .countdown .counter-icon{
+    width:27px !important;
+    height:27px !important;
+    font-size:14px !important;
+    margin-bottom:3px !important;
+  }
+}
+</style>
+
+<style id="snap-inspired-camera-icon">
+#cameraButton .snap-inspired-icon{
+  width:36px !important;
+  height:36px !important;
+  border:0 !important;
+  border-radius:0 !important;
+  position:relative !important;
+  display:block !important;
+  color:#fffaf2 !important;
+  background:none !important;
+  box-shadow:none !important;
+}
+#cameraButton .snap-inspired-icon svg{
+  width:100%;
+  height:100%;
+  display:block;
+  filter:drop-shadow(0 2px 5px rgba(0,0,0,.22));
+}
+</style>
